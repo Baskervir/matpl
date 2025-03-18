@@ -3,32 +3,24 @@ package com.example.matpl.controller;
 import com.example.matpl.entity.UserEntity;
 import com.example.matpl.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RequiredArgsConstructor
-@RequestMapping("/user")
+@RestController
+@RequestMapping("/api/users")
 public class UserController {
+
     private final UserService userService;
 
-    @GetMapping("/signup")
-    public String signup() {
-        return "signup";
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @PostMapping("/signup")
-    public String registerUser(@ModelAttribute UserEntity userEntity, Model model) {
-        try {
-            userService.registerUser(userEntity);
-            return "redirect:/login";
-        } catch (IllegalArgumentException e) {
-            model.addAttribute("error", e.getMessage());
-            return "signup";
-        }
+    public ResponseEntity<String> registerUser(@RequestParam String userEmail, @RequestParam String password) {
+        userService.registerUser(userEmail, password);
+        return ResponseEntity.ok("회원가입 성공!");
     }
 }

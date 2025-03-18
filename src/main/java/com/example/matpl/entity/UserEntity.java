@@ -16,7 +16,7 @@ public class UserEntity {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String email;
+    private String userEmail;
 
     @Column
     private String password;
@@ -28,5 +28,11 @@ public class UserEntity {
     private String nickname;
 
     @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(50) DEFAULT 'BASIC'")
     private Role role;
+
+    public UserEntity(String userEmail, String password) {
+        this.userEmail = userEmail;
+        this.password = password;
+    }
 }
