@@ -35,7 +35,6 @@ public class UserService {
 
         String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
 
-        log.info("UserEntity 생성 전 - email: {}, nickname: {}", userDTO.getEmail(), userDTO.getNickname());
 
         UserEntity user = new UserEntity(
                 userDTO.getEmail(),
@@ -44,10 +43,7 @@ public class UserService {
                 userDTO.getNickname()
         );
 
-        log.info("UserEntity 생성 완료: {}", user);
-
         userRepository.save(user);
-        log.info(userRepository.toString());
         log.info("회원 저장 완료");
     }
 }
