@@ -15,18 +15,30 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = new BCryptPasswordEncoder();
-    }
+    @Transactional
+    public void registerUser(UserDTO userDTO) {
 
-    public void registerUser(String userEmail, String password) {
-        if (userRepository.existsByUserEmail(userEmail)) {
-            throw new UserAlreadyExistsException("이미 존재하는 사용자입니다.");
+        if (userRepository.existsByUserEmail(userDTO.getEmail())) {
+            throw new UserAlreadyExistsException("이미 사용 중인 이메일입니다.");
         }
 
-        String encodedPassword = passwordEncoder.encode(password);
-        UserEntity user = new UserEntity(userEmail, encodedPassword);
+        if (userRepository.existsByUserNickname(userDTO.getNickname())) {
+            throw new UserAlreadyExistsException("이미 사용 중인 닉네임입니다.");
+        }
+
+        if (!userDTO.getPassword().equals(userDTO.getPasswordCheck())) {
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
+
+        String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
+
+        UserEntity user = new UserEntity(
+                null,
+                userDTO.getEmail(),
+                encodedPassword,
+                userDTO.getNickname(),
+                null
+        );
 
         userRepository.save(user);
     }
