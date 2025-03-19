@@ -33,7 +33,7 @@ public class UserEntity {
     @Column(columnDefinition = "VARCHAR(50) DEFAULT 'BASIC'")
     private Role role;
 
-    public UserEntity(Object o, @Email(message = "올바른 이메일 주소를 입력하세요.") @NotBlank(message = "이메일을 입력하지 않았습니다.") String email, String encodedPassword, @NotBlank(message = "닉네임을 입력해주세요.") String nickname, Object o1) {
+    public UserEntity(Object o, String email, String encodedPassword, String nickname, Role role) {
     }
 
     @PrePersist
