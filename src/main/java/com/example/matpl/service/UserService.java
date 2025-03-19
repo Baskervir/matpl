@@ -29,8 +29,12 @@ public class UserService {
             throw new UserAlreadyExistsException("이미 사용 중인 닉네임입니다.");
         }
 
-        if (userRepository.existsByPassword(userDTO.getPassword())) {
+        if (!userDTO.getPassword().equals(userDTO.getPasswordCheck()))  {
             throw new UserAlreadyExistsException("비밀번호가 일치하지 않습니다.");
+        }
+
+        if (userDTO.getPassword().length() < 8) {
+            throw new IllegalArgumentException("비밀번호는 최소 8자리 이상이어야 합니다.");
         }
 
         String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
