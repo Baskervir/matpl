@@ -22,9 +22,6 @@ public class UserEntity {
     @Column
     private String password;
 
-    @Column
-    private String passwordCheck;
-
     @Column(unique = true)
     private String nickname;
 
@@ -32,10 +29,9 @@ public class UserEntity {
     @Column(columnDefinition = "VARCHAR(50) DEFAULT 'BASIC'")
     private Role role;
 
-    public UserEntity(String email, String password, String passwordCheck, String nickname) {
+    public UserEntity(String email, String password, String nickname) {
         this.email = email;
         this.password = password;
-        this.passwordCheck = passwordCheck;
         this.nickname = nickname;
     }
 
@@ -53,7 +49,6 @@ public class UserEntity {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", passwordCheck='" + passwordCheck + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", role=" + role +
                 '}';

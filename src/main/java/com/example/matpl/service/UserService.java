@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final MailService mailService;
 
     @Transactional
     public void registerUser(@Valid UserDTO userDTO) {
@@ -42,12 +43,13 @@ public class UserService {
 
         UserEntity user = new UserEntity(
                 userDTO.getEmail(),
-                userDTO.getPassword(),
-                userDTO.getPasswordCheck(),
+                encodedPassword, // 암호화된 비밀번호 저장
                 userDTO.getNickname()
         );
 
         userRepository.save(user);
-        log.info("회원 저장 완료");
+        log.info("회원 저장 완료: {}", user.getEmail());
+
+        mailService.sendSignupConfirmationEmail(user.getEmail());
     }
 }
