@@ -2,8 +2,6 @@ package com.example.matpl.entity;
 
 import com.example.matpl.Role;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -11,13 +9,14 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
+@Builder
+@Table(name="users")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
     private String email;
 
     @Column
@@ -33,13 +32,30 @@ public class UserEntity {
     @Column(columnDefinition = "VARCHAR(50) DEFAULT 'BASIC'")
     private Role role;
 
-    public UserEntity(Object o, String email, String encodedPassword, String nickname, Role role) {
+    public UserEntity(String email, String password, String passwordCheck, String nickname) {
+        this.email = email;
+        this.password = password;
+        this.passwordCheck = passwordCheck;
+        this.nickname = nickname;
     }
+
 
     @PrePersist
     public void setDefaultRole() {
         if (this.role == null) {
             this.role = Role.BASIC;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", passwordCheck='" + passwordCheck + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", role=" + role +
+                '}';
     }
 }
