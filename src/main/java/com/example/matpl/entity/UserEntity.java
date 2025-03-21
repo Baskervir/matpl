@@ -1,6 +1,7 @@
 package com.example.matpl.entity;
 
-import com.example.matpl.Role;
+import com.example.matpl.enums.Role;
+import com.example.matpl.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Table(name="users")
-public class UserEntity {
+public class UserEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +25,12 @@ public class UserEntity {
 
     @Column(unique = true)
     private String nickname;
+
+//    @Enumerated(EnumType.STRING)
+//    private UserStatus status;
+//
+//    @Column
+//    private String verificationToken;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(50) DEFAULT 'BASIC'")

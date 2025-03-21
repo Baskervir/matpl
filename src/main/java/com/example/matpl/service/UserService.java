@@ -1,6 +1,5 @@
 package com.example.matpl.service;
 
-import com.example.matpl.Role;
 import com.example.matpl.dto.UserDTO;
 import com.example.matpl.entity.UserEntity;
 import com.example.matpl.exception.UserAlreadyExistsException;
@@ -43,7 +42,7 @@ public class UserService {
 
         UserEntity user = new UserEntity(
                 userDTO.getEmail(),
-                encodedPassword, // 암호화된 비밀번호 저장
+                encodedPassword,
                 userDTO.getNickname()
         );
 
