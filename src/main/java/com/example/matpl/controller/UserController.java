@@ -1,18 +1,16 @@
 package com.example.matpl.controller;
 
 import com.example.matpl.dto.UserDTO;
-import com.example.matpl.entity.UserEntity;
-import com.example.matpl.enums.UserStatus;
 import com.example.matpl.repository.UserRepository;
 import com.example.matpl.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/users")

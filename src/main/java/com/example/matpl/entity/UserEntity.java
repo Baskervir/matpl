@@ -1,7 +1,6 @@
 package com.example.matpl.entity;
 
 import com.example.matpl.enums.Role;
-import com.example.matpl.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
