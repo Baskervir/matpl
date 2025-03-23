@@ -27,7 +27,7 @@ public class SignupService {
     public void signup(@Valid UserDTO userDTO) {
         duplicateValidator.emailValidate(userDTO.getEmail());
         duplicateValidator.nicknameValidate(userDTO.getNickname());
-        passwordValidator.validate(userDTO.getPassword());
+        passwordValidator.validate(userDTO.getPassword(), userDTO.getPasswordCheck());
 
         String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
 
