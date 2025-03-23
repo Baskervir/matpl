@@ -2,7 +2,7 @@ package com.example.matpl.controller;
 
 import com.example.matpl.dto.UserDTO;
 import com.example.matpl.repository.UserRepository;
-import com.example.matpl.service.UserService;
+import com.example.matpl.service.SignupService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
-    private final UserService userService;
+    private final SignupService signupService;
     private final UserRepository userRepository;
 
     @PostMapping("/signup")
@@ -24,7 +24,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(bindingResult.getFieldError().getDefaultMessage());
         }
-        userService.registerUser(userDTO);
+        signupService.signup(userDTO);
         return ResponseEntity.ok("회원가입 성공!");
     }
 
