@@ -3,6 +3,7 @@ package com.example.matpl.service;
 import com.example.matpl.dto.UserDTO;
 import com.example.matpl.entity.UserEntity;
 import com.example.matpl.enums.UserStatus;
+import com.example.matpl.mail.MailService;
 import com.example.matpl.repository.UserRepository;
 import com.example.matpl.validator.DuplicateValidator;
 import com.example.matpl.validator.PasswordValidator;

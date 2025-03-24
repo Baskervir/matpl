@@ -7,6 +7,4 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     boolean existsByEmail(String email);
     boolean existsByNickname(String nickname);
     void deleteByEmail(String email);
-
-//    Optional<UserEntity> findByVerificationToken(String token);
 }

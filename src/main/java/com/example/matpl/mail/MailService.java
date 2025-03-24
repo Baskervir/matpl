@@ -1,6 +1,5 @@
-package com.example.matpl.service;
+package com.example.matpl.mail;
 
-import com.example.matpl.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.SimpleMailMessage;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MailService {
     private final JavaMailSender mailSender;
-    private final UserRepository userRepository;
 
     public void sendSignupConfirmationEmail(String toEmail) {
         SimpleMailMessage message = new SimpleMailMessage();
