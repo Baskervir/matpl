@@ -3,7 +3,6 @@ package com.example.matpl.service;
 import com.example.matpl.dto.UserDTO;
 import com.example.matpl.entity.UserEntity;
 import com.example.matpl.enums.UserStatus;
-import com.example.matpl.mail.MailService;
 import com.example.matpl.repository.UserRepository;
 import com.example.matpl.validator.DuplicateValidator;
 import com.example.matpl.validator.PasswordValidator;
@@ -20,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class SignupService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
-    private final MailService mailService;
     private final PasswordValidator passwordValidator;
     private final DuplicateValidator duplicateValidator;
 
@@ -41,8 +39,5 @@ public class SignupService {
                 .build();
 
         userRepository.save(user);
-        log.info("회원 저장 완료: {}", user.getEmail());
-
-        mailService.sendSignupConfirmationEmail(user.getEmail());
     }
 }
