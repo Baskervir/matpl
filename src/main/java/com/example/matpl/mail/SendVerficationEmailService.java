@@ -1,5 +1,6 @@
 package com.example.matpl.mail;
 
+import com.example.matpl.entity.EmailVerificationToken;
 import com.example.matpl.repository.EmailVerificationTokenRepository;
 import com.example.matpl.util.TokenGenerator;
 import jakarta.mail.MessagingException;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SendVerficationEmailService {
     private final JavaMailSender mailSender;
+    private final EmailVerificationTokenRepository repository;
 
     public void sendEmail(String email) {
         String token = TokenGenerator.generate();
@@ -37,7 +39,7 @@ public class SendVerficationEmailService {
             log.info("인증 메일 발송 성공: {}", email);
         } catch (MessagingException e) {
             log.error("메일 발송 실패", e);
-            throw new RuntimeException("메일 발송 중 예외 발생", e); // or CustomException
+            throw new RuntimeException("메일 발송 중 예외 발생", e);
         }
     }
 }
