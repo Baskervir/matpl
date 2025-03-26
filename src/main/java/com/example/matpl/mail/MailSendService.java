@@ -1,6 +1,6 @@
 package com.example.matpl.mail;
 
-import com.example.matpl.util.MailContentBuilder;
+import com.example.matpl.util.VerifyMailContentBuilder;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class MailSendService {
-    private final MailContentBuilder mailContentBuilder;
+    private final VerifyMailContentBuilder verifyMailContentBuilder;
     private final JavaMailSender mailSender;
 
-    public void sendMail(String email, String... token) {
-        String subject = mailContentBuilder.buildSubject();
-        String content = mailContentBuilder.buildContent(token);
+    public void sendVerifyMail(String email, String token) {
+        String subject = verifyMailContentBuilder.buildSubject();
+        String content = verifyMailContentBuilder.buildContentWithToken(token);
 
         try {
             MimeMessage message = mailSender.createMimeMessage();

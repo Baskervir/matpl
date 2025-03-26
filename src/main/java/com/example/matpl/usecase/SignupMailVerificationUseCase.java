@@ -17,6 +17,6 @@ public class SignupMailVerificationUseCase {
     public void execute(UserDTO userDTO) {
         String createdToken = tokenGenerator.generate();
         tokenStoreService.insertVerificationData(userDTO, createdToken);
-        mailSendService.sendMail(userDTO.getEmail(), createdToken);
+        mailSendService.sendVerifyMail(userDTO.getEmail(), createdToken);
     }
 }

@@ -40,6 +40,10 @@ public class UserEntity extends BaseEntity {
         this.status = status;
     }
 
+    public void verifiedUser() {
+        this.status = UserStatus.VERIFIED;
+    }
+
     @PrePersist
     public void setDefaultRole() {
         if (this.role == null) {
