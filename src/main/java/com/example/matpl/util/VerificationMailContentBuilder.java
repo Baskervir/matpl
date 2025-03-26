@@ -1,5 +1,8 @@
 package com.example.matpl.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class VerificationMailContentBuilder implements MailContentBuilder {
     @Override
     public String buildSubject() {

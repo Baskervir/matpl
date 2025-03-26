@@ -28,9 +28,6 @@ public class UserEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private UserStatus status;
-//
-//    @Column
-//    private String verificationToken;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(50) DEFAULT 'BASIC'")

@@ -15,11 +15,15 @@ public class SignupUseCase {
     private final DuplicateValidator duplicateValidator;
     private final PasswordValidator passwordValidator;
     private final SignupService signupService;
+    private final SignupMailVerificationUseCase signupMailVerificationUseCase;
 
     public void execute(UserDTO userDTO) {
         duplicateValidator.emailValidate(userDTO.getEmail());
         duplicateValidator.nicknameValidate(userDTO.getNickname());
         passwordValidator.validate(userDTO.getPassword(), userDTO.getPasswordCheck());
+
         signupService.signup(userDTO);
+
+        signupMailVerificationUseCase.execute(userDTO);
     }
 }

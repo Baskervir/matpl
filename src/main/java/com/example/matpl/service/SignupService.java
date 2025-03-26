@@ -30,7 +30,6 @@ public class SignupService {
 
         String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
 
-
         UserEntity user = UserEntity.builder()
                 .email(userDTO.getEmail())
                 .password(encodedPassword)
