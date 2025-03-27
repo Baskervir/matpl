@@ -4,7 +4,7 @@ import com.example.matpl.dto.UserDTO;
 import com.example.matpl.entity.UserEntity;
 import com.example.matpl.enums.UserStatus;
 import com.example.matpl.repository.UserRepository;
-import com.example.matpl.validator.DuplicateValidator;
+import com.example.matpl.validator.DuplicateUserInfoValidator;
 import com.example.matpl.validator.PasswordValidator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,12 +20,12 @@ public class SignupService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
     private final PasswordValidator passwordValidator;
-    private final DuplicateValidator duplicateValidator;
+    private final DuplicateUserInfoValidator duplicateUserInfoValidator;
 
     @Transactional
     public void signup(@Valid UserDTO userDTO) {
-        duplicateValidator.emailValidate(userDTO.getEmail());
-        duplicateValidator.nicknameValidate(userDTO.getNickname());
+        duplicateUserInfoValidator.emailValidate(userDTO.getEmail());
+        duplicateUserInfoValidator.nicknameValidate(userDTO.getNickname());
         passwordValidator.validate(userDTO.getPassword(), userDTO.getPasswordCheck());
 
         String encodedPassword = passwordEncoder.encode(userDTO.getPassword());

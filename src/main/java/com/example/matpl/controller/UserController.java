@@ -30,7 +30,4 @@ public class UserController {
                 new ApiResponse<>(true, "이메일 인증이 완료되었습니다.", null)
         );
     }
-
-//    @DeleteMapping("/signout")
-//    public ResponseEntity<ApiResponse<Void>>
 }

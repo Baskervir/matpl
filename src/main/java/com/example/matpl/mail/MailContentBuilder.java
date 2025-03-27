@@ -1,4 +1,4 @@
-package com.example.matpl.util;
+package com.example.matpl.mail;
 
 public interface MailContentBuilder {
     String buildSubject();

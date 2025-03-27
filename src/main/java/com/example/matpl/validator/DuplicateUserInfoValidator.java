@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class DuplicateValidator {
+public class DuplicateUserInfoValidator {
     private final UserRepository userRepository;
 
     public void emailValidate(String email) {

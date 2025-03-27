@@ -43,11 +43,4 @@ public class UserEntity extends BaseEntity {
     public void verifiedUser() {
         this.status = UserStatus.VERIFIED;
     }
-
-    @PrePersist
-    public void setDefaultRole() {
-        if (this.role == null) {
-            this.role = Role.BASIC;
-        }
-    }
 }

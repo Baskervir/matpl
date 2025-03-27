@@ -1,6 +1,5 @@
 package com.example.matpl.mail;
 
-import com.example.matpl.util.VerifyMailContentBuilder;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
