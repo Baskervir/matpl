@@ -1,34 +1,33 @@
 package com.example.matpl.controller;
 
-import com.example.matpl.entity.UserEntity;
-import com.example.matpl.service.UserService;
+import com.example.matpl.dto.UserDTO;
+import com.example.matpl.response.ApiResponse;
+import com.example.matpl.usecase.SignupUseCase;
+import com.example.matpl.usecase.SignupVerifyUserUseCase;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/api/users")
 @RequiredArgsConstructor
-@RequestMapping("/user")
 public class UserController {
-    private final UserService userService;
-
-    @GetMapping("/signup")
-    public String signup() {
-        return "signup";
-    }
+    private final SignupUseCase signup;
+    private final SignupVerifyUserUseCase signupVerifyUserUseCase;
 
     @PostMapping("/signup")
-    public String registerUser(@ModelAttribute UserEntity userEntity, Model model) {
-        try {
-            userService.registerUser(userEntity);
-            return "redirect:/login";
-        } catch (IllegalArgumentException e) {
-            model.addAttribute("error", e.getMessage());
-            return "signup";
-        }
+    public ResponseEntity<ApiResponse<Void>> registerUser(@RequestBody UserDTO userDTO) {
+        signup.execute(userDTO);
+        return ResponseEntity.ok(
+                new ApiResponse<>(true, "회원가입 성공", null)
+        );
+    }
+
+    @GetMapping("/verify")
+    public ResponseEntity<ApiResponse<Void>> verifyUser(@RequestParam("token") String token) {
+        signupVerifyUserUseCase.execute(token);
+        return ResponseEntity.ok(
+                new ApiResponse<>(true, "이메일 인증이 완료되었습니다.", null)
+        );
     }
 }

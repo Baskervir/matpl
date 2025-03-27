@@ -1,0 +1,247 @@
+.container {
+    width: 1220px;
+    justify-self: center;
+}
+
+.header {
+    margin: 16px;
+    height: 130px;
+}
+
+.header_object {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+
+
+.main_logo, .search_place, .search_button {
+    margin: auto;
+    margin: 10px;
+}
+
+.main_logo p {
+    font-size: clamp(10px, 2vw, 36px);
+    line-height: 0;
+}
+
+.search_place {
+    width: 1100px;
+    text-align: center;
+}
+
+#searchplace {
+    height: 30px;
+    width: 100%;
+}
+
+.search_button {
+    width: 100px;
+}
+
+.banner_image {
+    margin: 16px;
+    height: 220px;
+}
+
+img {
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.login_signup_text {
+    text-align: end;
+    width: 100%;
+    margin: 2px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2px;
+}
+
+.login_signup_text p {
+    font-size: 16px;
+}
+
+#banner_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.showed_restaurant {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.showed_restaurant div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tag_page > div{
+    border: 0.1px solid rgb(0, 0, 0);
+}
+
+.section_info {
+    height: 30px;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 1050px;
+    align-items: center;
+}
+
+.section_info :nth-child(1) {
+    font-size: 20px;
+}
+
+.viewed_page {
+    margin-bottom: 10px;
+}
+
+section {
+    height: 350px;
+    width: 220px;
+    border: 0.1px solid red;
+}
+
+section > div {
+    margin-top: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 15px;
+}
+
+.restaurant_name {
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.restaurant_image {
+    height: 200px;
+}
+
+.restaurant_info_tag {
+    height: 80px;
+}
+
+
+
+
+.footer {
+    height: 100px;
+    border: 0.1px solid red;
+}
+
+.page_button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+}
+
+
+
+/* Modal Page Setting */
+
+.login_signup_container {
+    background-color: rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 0fr);
+    grid-gap: 100px;
+    padding: 16px;
+    border-radius: 15px;
+}
+
+.signup_container {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup_container > input {
+    margin: 8px 0px 10px 1px;
+    height: 25px;
+}
+
+.login_container {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_container > input {
+    margin: 8px 0px 10px 1px;
+    height: 25px;
+}
+
+.signup_btn, .login_btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal_btn {
+    border-radius: 25px;
+    font-weight: 700;
+}
+
+
+
+
+.modal_overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 16px;
+}
+
+
+
+
+
+/* Sample Btn */
+.setting_btn {
+    font-size: 36px;
+    background-color: white;
+    border-radius: 50px;
+    border: none;
+}
+
+.login_signup_text > p {
+    font-size: 32px;
+}
+
+/* Section_Line */
+hr {
+    border: 3px solid brown;
+}
