@@ -1,4 +1,4 @@
-package com.example.matpl.dto;
+package com.example.matpl.login;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
