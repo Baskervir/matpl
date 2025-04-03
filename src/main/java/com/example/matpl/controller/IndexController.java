@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
     @GetMapping("/matpl/home")
     public String index() {
-        System.out.println("print Index");
         return "index";
     }
 }
