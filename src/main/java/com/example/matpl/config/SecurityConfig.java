@@ -14,7 +14,15 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/signup", "/api/users/verify", "/api/login").permitAll()
+                        .requestMatchers(
+                                "/matpl/home",
+                                "/css/**",
+                                "/js/**",
+                                "/image/**",
+                                "/users/signup",
+                                "/users/**",
+                                "/login"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form.disable())

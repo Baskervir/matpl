@@ -1,33 +1,31 @@
 package com.example.matpl.controller;
 
 import com.example.matpl.dto.UserDTO;
-import com.example.matpl.response.ApiResponse;
 import com.example.matpl.usecase.SignupUseCase;
 import com.example.matpl.usecase.SignupVerifyUserUseCase;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
-@RequestMapping("/api/users")
+@Controller
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class SignupController {
     private final SignupUseCase signup;
     private final SignupVerifyUserUseCase signupVerifyUserUseCase;
 
     @PostMapping("/signup")
-    public ResponseEntity<ApiResponse<Void>> registerUser(@RequestBody UserDTO userDTO) {
+    public String registerUser(@ModelAttribute UserDTO userDTO) {
         signup.execute(userDTO);
-        return ResponseEntity.ok(
-                new ApiResponse<>(true, "회원가입 성공", null)
-        );
+        return "redirect:/matpl/home";
     }
 
     @GetMapping("/verify")
-    public ResponseEntity<ApiResponse<Void>> verifyUser(@RequestParam("token") String token) {
+    public String verifyUser(@ModelAttribute("token") String token) {
         signupVerifyUserUseCase.execute(token);
-        return ResponseEntity.ok(
-                new ApiResponse<>(true, "이메일 인증이 완료되었습니다.", null)
-        );
+        return "verify-success";
     }
 }

@@ -2,6 +2,7 @@ package com.example.matpl.service;
 
 import com.example.matpl.dto.UserDTO;
 import com.example.matpl.entity.UserEntity;
+import com.example.matpl.enums.Role;
 import com.example.matpl.enums.UserStatus;
 import com.example.matpl.repository.UserRepository;
 import com.example.matpl.validator.DuplicateUserInfoValidator;
@@ -34,6 +35,7 @@ public class SignupService {
                 .email(userDTO.getEmail())
                 .password(encodedPassword)
                 .nickname(userDTO.getNickname())
+                .role(Role.BASIC)
                 .status(UserStatus.UNVERIFIED)
                 .build();
 
