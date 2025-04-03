@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matpl_Index</title>
-    <link rel="stylesheet" href="/index/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
     </div>
 
 
-    <div class="banner_image"><img src="/index/main_banner.png" alt="main_banner" id="banner_img"></div>
+    <div class="banner_image"><img src="/image/main_banner.png" alt="main_banner" id="banner_img"></div>
 
 
     <hr>
@@ -76,7 +76,7 @@
                 </section>
                 <section class="tag_page">
                     <div class="restaurant_name" id="restaurant_name">묵호회집</div>
-                    <div class="restaurant_image" id="restaureant_image"><img src="/index/mookho.png" alt=""></div>
+                    <div class="restaurant_image" id="restaureant_image"><img src="/image/mookho.png" alt=""></div>
                     <div class="restaurant_info_tag">
                         <p>#초밥</p>
                         <p>, 성시경의 먹을텐데</p>
@@ -215,14 +215,15 @@
         <div class="login_signup_container">
             <div class="signup_container">
                 <h2>회원가입</h2>
-                <input type="text" id="user_id" placeholder="아이디">
-                <input type="text" id="user_name" placeholder="닉네임">
-                <input type="text" id="password" placeholder="비밀번호">
-                <input type="text" id="password_check" placeholder="비밀번호 확인">
-                <input type="text" id="user_email" placeholder="이메일">
-                <div class="signup_btn">
-                    <button class="modal_btn">회원가입</button>
-                </div>
+                <form action="/users/signup" method="post">
+                    <input type="text" name="email" placeholder="이메일" required>
+                    <input type="text" name="nickname" placeholder="닉네임" required>
+                    <input type="text" name="password" placeholder="비밀번호" required>
+                    <input type="text" name="passwordCheck" placeholder="비밀번호 확인" required>
+                    <div class="signup_btn">
+                        <button type="submit" class="modal_btn">회원가입</button>
+                    </div>
+                </form>
             </div>
 
             <div class="login_container">
