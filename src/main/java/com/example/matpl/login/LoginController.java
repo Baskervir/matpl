@@ -17,4 +17,9 @@ public class LoginController {
         loginUseCase.execute(loginDTO);
         return "";
     }
+
+    @PostMapping("/out")
+    public String userLogout() {
+        return "redirect:/matpl/home";
+    }
 }
