@@ -12,7 +12,26 @@
 <div class="container">
     <div class="header">
         <div class="login_signup_text">
-            <button class="open-modal">회원가입 / 로그인</button>
+            {{#sessionName}}
+                <div class="login_info">
+                    {{#profileImage}}
+                        <img src="{{profileImage}}" alt="프로필 이미지" class="profile_img">
+                    {{/profileImage}}
+
+                    {{^profileImage}}
+                        <img src="/image/profile_default.png" alt="기본 프로필 이미지" class="profile_img">
+                    {{/profileImage}}
+                    <span>{{sessionName}} 님</span>
+                    <button class="settings_btn">설정</button>
+                </div>
+            {{/sessionName}}
+
+            <!-- 로그인 X -->
+            {{^sessionName}}
+                <div class="login_signup_text">
+                    <button class="open-modal">회원가입 / 로그인</button>
+                </div>
+            {{/sessionName}}
         </div>
         <hr>
         <div class="header_object">
@@ -228,11 +247,13 @@
 
             <div class="login_container">
                 <h2>로그인</h2>
-                <input type="text" id="user_id" placeholder="아이디">
-                <input type="text" id="password" placeholder="비밀번호">
-                <div class="login_btn">
-                    <button class="modal_btn">로그인</button>
-                </div>
+                <form action="/login/in" method="post">
+                    <input type="text" name="email" placeholder="이메일">
+                    <input type="text" name="password" placeholder="비밀번호">
+                    <div class="login_btn">
+                        <button type="submit" class="modal_btn">로그인</button>
+                    </div>
+                </form>
             </div>
             <div class="login_sample">
                 <h2>로그인 샘플</h2>
