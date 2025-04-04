@@ -212,7 +212,7 @@ section > div {
     z-index: 999;
 }
 
-.modal {
+.modal_signup_login {
     display: none;
     position: fixed;
     top: 50%;
@@ -286,15 +286,6 @@ section > div {
 }
 
 
-
-/* Sample Btn */
-.setting_btn {
-    font-size: 36px;
-    background-color: white;
-    border-radius: 50px;
-    border: none;
-}
-
 .login_signup_text > p {
     font-size: 32px;
 }
@@ -302,4 +293,26 @@ section > div {
 /* Section_Line */
 hr {
     border: 3px solid brown;
+}
+
+/* 오류 메시지 */
+.error_message {
+  color: red;
+  font-size: 24px;
+  margin: 8px 8px 8px 8px;
+  text-align: center;
+  border: 900;
+}
+
+.error_modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 15px;
 }

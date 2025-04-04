@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/log")
 @RequiredArgsConstructor
 public class LoginController {
     private final LoginUseCase loginUseCase;

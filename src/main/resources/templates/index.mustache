@@ -22,14 +22,14 @@
                         <img src="/image/profile_default.png" alt="기본 프로필 이미지" class="profile_img">
                     {{/profileImage}}
                     <span>{{sessionName}} 님</span>
-                    <button class="settings_btn">⚙️</button>
+                    <button data-modal-target=".modal_user_setting">⚙️</button>
                 </div>
             {{/sessionName}}
 
             <!-- 로그인 X -->
             {{^sessionName}}
                 <div class="login_signup_text">
-                    <button class="open-modal">회원가입 / 로그인</button>
+                    <button data-modal-target=".modal_signup_login">회원가입 / 로그인</button>
                 </div>
             {{/sessionName}}
         </div>
@@ -232,7 +232,7 @@
     <div class="modal_overlay"></div>
 
     <!-- 회원가입 및 로그인 모달 -->
-    <div class="modal">
+    <div class="modal_signup_login">
         <div class="login_signup_container">
             <div class="signup_container">
                 <h2>회원가입</h2>
@@ -249,19 +249,13 @@
 
             <div class="login_container">
                 <h2>로그인</h2>
-                <form action="/login/in" method="post">
+                <form action="/log/in" method="post">
                     <input type="text" name="email" placeholder="이메일">
                     <input type="text" name="password" placeholder="비밀번호">
                     <div class="login_btn">
                         <button type="submit" class="modal_btn">로그인</button>
                     </div>
                 </form>
-            </div>
-            <div class="login_sample">
-                <h2>로그인 샘플</h2>
-                <button onclick="login_basic()">Basic</button>
-                <button onclick="login_admin()">Admin</button>
-                <button onclick="login_root()">Root</button>
             </div>
         </div>
 
@@ -290,12 +284,35 @@
             <h4>방문 기록</h4>
             <h4>사업자 등록하기</h4>
             <hr>
+            <form action="/log/out" method="post">
             <button class="logout_btn">로그아웃</button>
+            </form>
         </div>
+    </div>
+
+    <div class="error_modalOverlay"></div>
+
+    <div class="error_modal">
+        {{#errorMessage}}
+            <div class="error_message">{{errorMessage}}</div>
+        {{/errorMessage}}
     </div>
 
 </div>
 <script src="/js/index.js"></script>
+{{#errorMessage}}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const modalOverlay = document.querySelector(".modal_overlay");
+          const modal = document.querySelector(".error_modal");
+
+          if (modal && modalOverlay) {
+            modal.style.display = "block";
+            modalOverlay.style.display = "block";
+          }
+        });
+    </script>
+{{/errorMessage}}
 </body>
 
 </html>
