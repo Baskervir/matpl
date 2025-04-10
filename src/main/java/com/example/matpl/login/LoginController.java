@@ -19,7 +19,7 @@ public class LoginController {
         loginUseCase.execute(loginDTO);
         String nickname = (String) session.getAttribute("loginUser");
         model.addAttribute("sessionName", nickname);
-        return "index";
+        return "redirect:/matpl/home";
     }
 
     @PostMapping("/out")

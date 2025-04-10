@@ -19,9 +19,8 @@
                     {{/profileImage}}
 
                     {{^profileImage}}
-                        <img src="/image/profile_default.png" alt="기본 프로필 이미지" class="profile_img">
+                        <img src="/image/UserBasicImg.png" alt=""> <span>{{sessionName}} 님</span>
                     {{/profileImage}}
-                    <span>{{sessionName}} 님</span>
                     <button data-modal-target=".modal_user_setting">⚙️</button>
                 </div>
             {{/sessionName}}
@@ -263,15 +262,15 @@
 
     <div class="modal_user_setting">
         <div class="user_setting_container">
-        <!--            {{#profileImage}}-->
-            <!--                <img src="{{profileImage}}" alt="프로필 이미지" class="profile_img">-->
-                <!--            {{/profileImage}}-->
-            <!---->
-                <!--            {{^profileImage}}-->
-            <!--                <img src="/image/profile_default.png" alt="기본 프로필 이미지" class="profile_img">-->
-                <!--            {{/profileImage}}-->
+
             <div class="profile_img">
-                <p>IMG</p>
+                {{#profileImage}}
+                    <img src="{{profileImage}}" alt="프로필 이미지" class="profile_img">
+                {{/profileImage}}
+
+                {{^profileImage}}
+                    <img src="/image/UserBasicImg.png" alt="">
+                {{/profileImage}}
             </div>
             {{#sessionName}}
                 <h4 id="user_nickname">반갑습니다. {{sessionName}}님!</h4>
@@ -285,7 +284,7 @@
             <h4>사업자 등록하기</h4>
             <hr>
             <form action="/log/out" method="post">
-            <button class="logout_btn">로그아웃</button>
+                <button class="logout_btn">로그아웃</button>
             </form>
         </div>
     </div>

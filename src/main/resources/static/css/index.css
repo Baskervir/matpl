@@ -248,6 +248,13 @@ section > div {
     margin: 8px auto;
 }
 
+.profile_img img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .user_setting_container {
     width: 260px;
     display: flex;
@@ -288,6 +295,22 @@ section > div {
 
 .login_signup_text > p {
     font-size: 32px;
+}
+
+.login_info {
+    display: flex;
+    align-items: center;
+}
+
+.login_info img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.login_info span {
+    margin-right: 10px;
 }
 
 /* Section_Line */
