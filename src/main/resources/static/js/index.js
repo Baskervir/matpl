@@ -1,64 +1,61 @@
-const openModalBttn = document.querySelector(".open-modal");
-const modal = document.querySelector(".modal");
-const modalOverlay = document.querySelector(".modal_overlay");
+document.addEventListener("DOMContentLoaded", () => {
+  const modalOverlay = document.querySelector(".modal_overlay");
 
-openModalBttn.addEventListener("click", function () {
+  function openModal(modalSelector) {
+    const modal = document.querySelector(modalSelector);
+    if (!modal) return;
     modal.style.display = "block";
     modalOverlay.style.display = "block";
+  }
+
+  function closeAllModals() {
+    document.querySelectorAll(".modal_signup_login, .modal_user_setting, .error_modal").forEach(m => {
+      m.style.display = "none";
+    });
+    modalOverlay.style.display = "none";
+  }
+
+  modalOverlay.addEventListener("click", closeAllModals);
+
+  document.querySelectorAll("[data-modal-target]").forEach(btn => {
+    const target = btn.getAttribute("data-modal-target");
+    btn.addEventListener("click", () => openModal(target));
+  });
 });
 
-modalOverlay.addEventListener('click', function () {
-    modal.style.display = 'none';
-    modalOverlay.style.display = 'none';
-});
 
-function login_basic() {
-    let header = document.querySelector(".open-modal");
-    header.parentNode.removeChild(header);
-
-    modal.style.display = "none";
-    modalOverlay.style.display = "none";
-
-    let newP = document.createElement("p");
-    newP.innerHTML = `Basic_user1`;
-    document.querySelector(".login_signup_text").appendChild(newP);
-
-    let newBtn = document.createElement("button");
-    newBtn.innerHTML = `⚙️`;
-    document.querySelector(".login_signup_text").appendChild(newBtn);
-    newBtn.setAttribute("class", "setting_btn");
-}
-
-function login_admin() {
-    let header = document.querySelector(".open-modal");
-    header.parentNode.removeChild(header);
-
-    modal.style.display = "none";
-    modalOverlay.style.display = "none";
-
-    let newP = document.createElement("p");
-    newP.innerHTML = `Admin_user1`;
-    document.querySelector(".login_signup_text").appendChild(newP);
-
-    let newBtn = document.createElement("button");
-    newBtn.innerHTML = `⚙️`;
-    document.querySelector(".login_signup_text").appendChild(newBtn);
-    newBtn.setAttribute("class", "setting_btn");
-}
-
-function login_root() {
-    let header = document.querySelector(".open-modal");
-    header.parentNode.removeChild(header);
-
-    modal.style.display = "none";
-    modalOverlay.style.display = "none";
-
-    let newP = document.createElement("p");
-    newP.innerHTML = `Root_user1`;
-    document.querySelector(".login_signup_text").appendChild(newP);
-
-    let newBtn = document.createElement("button");
-    newBtn.innerHTML = `⚙️`;
-    document.querySelector(".login_signup_text").appendChild(newBtn);
-    newBtn.setAttribute("class", "setting_btn");
-}
+//const modalOverlay = document.querySelector(".modal_overlay");
+//
+//function openModal(modalSelector) {
+//    const modal = document.querySelector(modalSelector);
+//    if (!modal) return;
+//    modal.style.display = "block";
+//    modalOverlay.style.display = "block";
+//}
+//
+//modalOverlay.addEventListener("click", () => {
+//    document.querySelectorAll("..modal_signup&login, .modal_user_setting, .error_modal").forEach(m => {
+//        m.style.display = "none";
+//    });
+//    modalOverlay.style.display = "none";
+//    error_modalOverlay.style.display = "none";
+//});
+//
+//const openModalBtn = document.querySelector(".open-modal");
+//if (openModalBtn) {
+//    openModalBtn.addEventListener("click", () => openModal("..modal_signup&login"));
+//}
+//
+//const settingsBtn = document.querySelector(".settings_btn");
+//if (settingsBtn) {
+//    settingsBtn.addEventListener("click", () => openModal(".modal_user_setting"));
+//}
+//
+//const loginError = "{{loginError}}";
+//
+//if (loginError && loginError.trim() !== "") {
+//  window.addEventListener("DOMContentLoaded", () => {
+//    document.querySelector(".error_modal").style.display = "block";
+//    document.querySelector(".error_modalOverlay").style.display = "block";
+//  });
+//}

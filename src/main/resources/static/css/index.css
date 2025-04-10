@@ -212,7 +212,7 @@ section > div {
     z-index: 999;
 }
 
-.modal {
+.modal_signup_login {
     display: none;
     position: fixed;
     top: 50%;
@@ -225,23 +225,117 @@ section > div {
     border-radius: 16px;
 }
 
+/* 회원 정보 모달 페이지 */
 
-
-
-
-/* Sample Btn */
-.setting_btn {
-    font-size: 36px;
-    background-color: white;
-    border-radius: 50px;
-    border: none;
+.modal_user_setting {
+    display: none;
+    position: fixed;
+    top: 35%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 16px;
 }
+
+.profile_img {
+    height: 48px;
+    width: 48px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin: 8px auto;
+}
+
+.profile_img img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user_setting_container {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #944c22;
+    border-radius: 15px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+.user_setting_container h4 {
+    margin-bottom: 0px;
+}
+
+.user_setting_container hr {
+    border: none;
+    border-bottom: 1px solid #944c22;
+    margin: 16px;
+    margin-top: 16px;
+}
+
+#user_nickname {
+    background-color: rgb(255, 255, 208);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.logout_btn {
+    border-radius: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: auto 40px auto 40px;
+    background-color: rgb(255, 0, 0, 0.5);
+    font-weight: bolder;
+}
+
 
 .login_signup_text > p {
     font-size: 32px;
 }
 
+.login_info {
+    display: flex;
+    align-items: center;
+}
+
+.login_info img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.login_info span {
+    margin-right: 10px;
+}
+
 /* Section_Line */
 hr {
     border: 3px solid brown;
+}
+
+/* 오류 메시지 */
+.error_message {
+  color: red;
+  font-size: 24px;
+  margin: 8px 8px 8px 8px;
+  text-align: center;
+  border: 900;
+}
+
+.error_modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 15px;
 }
