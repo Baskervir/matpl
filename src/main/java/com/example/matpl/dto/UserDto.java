@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class UserDto {
 
     @Email(message = "올바른 이메일 주소를 입력하세요.")
     @NotBlank(message = "이메일은 필수 입력값입니다.")

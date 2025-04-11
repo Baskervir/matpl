@@ -1,0 +1,31 @@
+<!-- 회원가입 및 로그인 모달 -->
+<div class="modal_signup_login">
+    <div class="login_signup_container">
+        <div class="signup_container">
+            <h2>회원가입</h2>
+            <form action="/users/signup" method="post">
+                <input type="text" name="email" placeholder="이메일" required>
+                <input type="text" name="nickname" placeholder="닉네임" required>
+                <input type="text" name="password" placeholder="비밀번호" required>
+                <input type="text" name="passwordCheck" placeholder="비밀번호 확인" required>
+                <div class="signup_btn">
+                    <button type="submit" class="modal_btn">회원가입</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="login_container">
+            <h2>로그인</h2>
+            <form action="/log/in" method="post">
+                <input type="text" name="email" placeholder="이메일">
+                <input type="text" name="password" placeholder="비밀번호">
+                <div class="login_btn">
+                    <button type="submit" class="modal_btn">로그인</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal_overlay"></div>

@@ -10,42 +10,8 @@
 
 <body>
 <div class="container">
-    <div class="header">
-        <div class="login_signup_text">
-            {{#sessionName}}
-                <div class="login_info">
-                    {{#profileImage}}
-                        <img src="{{profileImage}}" alt="프로필 이미지" class="profile_img">
-                    {{/profileImage}}
 
-                    {{^profileImage}}
-                        <img src="/image/UserBasicImg.png" alt=""> <span>{{sessionName}} 님</span>
-                    {{/profileImage}}
-                    <button data-modal-target=".modal_user_setting">⚙️</button>
-                </div>
-            {{/sessionName}}
-
-            <!-- 로그인 X -->
-            {{^sessionName}}
-                <div class="login_signup_text">
-                    <button data-modal-target=".modal_signup_login">회원가입 / 로그인</button>
-                </div>
-            {{/sessionName}}
-        </div>
-        <hr>
-        <div class="header_object">
-            <div class="main_logo">
-                <p>MatPl<sub>ace</sub></p>
-            </div>
-            <div class="search_place">
-                <input type="text" id="searchplace" placeholder="검색어를 입력하세요.">
-            </div>
-            <div class="search_button">
-                <button onclick="window.location.href='/detail/detail_page.html'">검색하기</button>
-            </div>
-        </div>
-    </div>
-
+    {{>layouts/header}}
 
     <div class="banner_image"><img src="/image/main_banner.png" alt="main_banner" id="banner_img"></div>
 
@@ -225,93 +191,14 @@
 
     <hr>
 
-    <div class="footer"></div>
-
-    <!-- 모달 창을 위한 오버레이 -->
-    <div class="modal_overlay"></div>
-
-    <!-- 회원가입 및 로그인 모달 -->
-    <div class="modal_signup_login">
-        <div class="login_signup_container">
-            <div class="signup_container">
-                <h2>회원가입</h2>
-                <form action="/users/signup" method="post">
-                    <input type="text" name="email" placeholder="이메일" required>
-                    <input type="text" name="nickname" placeholder="닉네임" required>
-                    <input type="text" name="password" placeholder="비밀번호" required>
-                    <input type="text" name="passwordCheck" placeholder="비밀번호 확인" required>
-                    <div class="signup_btn">
-                        <button type="submit" class="modal_btn">회원가입</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="login_container">
-                <h2>로그인</h2>
-                <form action="/log/in" method="post">
-                    <input type="text" name="email" placeholder="이메일">
-                    <input type="text" name="password" placeholder="비밀번호">
-                    <div class="login_btn">
-                        <button type="submit" class="modal_btn">로그인</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="modal_user_setting">
-        <div class="user_setting_container">
-
-            <div class="profile_img">
-                {{#profileImage}}
-                    <img src="{{profileImage}}" alt="프로필 이미지" class="profile_img">
-                {{/profileImage}}
-
-                {{^profileImage}}
-                    <img src="/image/UserBasicImg.png" alt="">
-                {{/profileImage}}
-            </div>
-            {{#sessionName}}
-                <h4 id="user_nickname">반갑습니다. {{sessionName}}님!</h4>
-            {{/sessionName}}
-            <hr>
-            <h4>마이 페이지</h4>
-            <h4>리뷰 관리</h4>
-            <h4>개인 정보 변경</h4>
-            <h4>즐겨찾기</h4>
-            <h4>방문 기록</h4>
-            <h4>사업자 등록하기</h4>
-            <hr>
-            <form action="/log/out" method="post">
-                <button class="logout_btn">로그아웃</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="error_modalOverlay"></div>
-
-    <div class="error_modal">
-        {{#errorMessage}}
-            <div class="error_message">{{errorMessage}}</div>
-        {{/errorMessage}}
-    </div>
+    {{>layouts/footer}}
+    {{>modals/login_signup_modal}}
+    {{>modals/user_setting}}
+    {{>errors/errors}}
 
 </div>
 <script src="/js/index.js"></script>
-{{#errorMessage}}
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const modalOverlay = document.querySelector(".modal_overlay");
-          const modal = document.querySelector(".error_modal");
-
-          if (modal && modalOverlay) {
-            modal.style.display = "block";
-            modalOverlay.style.display = "block";
-          }
-        });
-    </script>
-{{/errorMessage}}
+{{>errors/errorsJS}}
 </body>
 
 </html>

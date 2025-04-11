@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>사용자 정보</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/user_info.css">
+</head>
+<body>
+<div class="container">
+
+    {{>layouts/header}}
+
+    <hr>
+
+    <div class="user_page_body">
+        <!-- 좌측 메뉴 -->
+        <div class="user_menu">
+            <ul>
+                <li><a href="/matpl/users/info?view=mypage">마이 페이지</a></li>
+                <li><a href="/matpl/users/info?view=userSetting">개인 정보 변경</a></li>
+                <li><a href="/matpl/users/info?view=favorites">즐겨찾기</a></li>
+                <li><a href="/matpl/users/info?view=userHistory">방문 기록</a></li>
+                <li><a href="/matpl/users/info?view=userReviews">리뷰 관리</a></li>
+                <li><a href="/matpl/users/info?view=requestAdmin">사업자 등록하기</a></li>
+                <form action="/log/out" method="post">
+                    <button class="logout_btn">로그아웃</button>
+                </form>
+            </ul>
+        </div>
+
+        <!-- 우측 상세 정보 -->
+        <div class="user_detail" id="detail-container">
+            {{#isMypage}}
+                {{>fragments/userInfo/user_info_mypage}}
+            {{/isMypage}}
+            {{#isRequest}}
+                {{>fragments/userInfo/admin_request_form}}
+            {{/isRequest}}
+            {{#isFavorites}}
+                {{>fragments/userInfo/user_info_favorites}}
+            {{/isFavorites}}
+            {{#isHistory}}
+                {{>fragments/userInfo/user_info_history}}
+            {{/isHistory}}
+            {{#isReviews}}
+                {{>fragments/userInfo/user_info_reviews}}
+            {{/isReviews}}
+            {{#isChange}}
+                {{>fragments/userInfo/user_info_change}}
+            {{/isChange}}
+        </div>
+    </div>
+
+    {{>layouts/footer}}
+    {{>modals/login_signup_modal}}
+    {{>modals/user_setting}}
+    {{>errors/errors}}
+    {{>errors/errorsJS}}
+
+</div>
+<script src="/js/index.js"></script>
+</body>
+</html>

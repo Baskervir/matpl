@@ -1,6 +1,6 @@
 package com.example.matpl.service;
 
-import com.example.matpl.dto.UserDTO;
+import com.example.matpl.dto.UserDto;
 import com.example.matpl.entity.EmailVerificationToken;
 import com.example.matpl.repository.EmailVerificationTokenRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ public class TokenStoreService {
     private final EmailVerificationTokenRepository tokenRepository;
 
     @Transactional
-    public void insertVerificationData(UserDTO userDTO, String createdToken) {
+    public void insertVerificationData(UserDto userDTO, String createdToken) {
         EmailVerificationToken verifyData = EmailVerificationToken.builder()
                 .email(userDTO.getEmail())
                 .token(createdToken)

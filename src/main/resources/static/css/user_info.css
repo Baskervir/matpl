@@ -1,0 +1,80 @@
+.user_page_body {
+    display: flex;
+    gap: 32px;
+    padding: 24px;
+}
+
+.user_menu {
+    width: 200px;
+    background-color: #fff8f0;
+    border: 1px solid #944c22;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+
+    height: 420px;
+    align-self: flex-start;
+}
+
+.user_menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.user_menu li {
+    margin: 0;
+}
+
+.user_menu a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #5a2c0d;
+}
+
+.user_detail {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 24px;
+    background-color: white;
+    min-height: 400px;
+}
+
+
+
+
+.admin-request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-request-form label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.admin-request-form input, .admin-request-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.admin-request-form button {
+    margin-top: 16px;
+    padding: 10px;
+    background-color: #944c22;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.admin-request-form button:hover {
+    background-color: #7a3b19;
+}

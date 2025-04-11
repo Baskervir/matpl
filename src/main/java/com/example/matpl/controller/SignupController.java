@@ -1,6 +1,6 @@
 package com.example.matpl.controller;
 
-import com.example.matpl.dto.UserDTO;
+import com.example.matpl.dto.UserDto;
 import com.example.matpl.usecase.SignupUseCase;
 import com.example.matpl.usecase.SignupVerifyUserUseCase;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ public class SignupController {
     private final SignupVerifyUserUseCase signupVerifyUserUseCase;
 
     @PostMapping("/signup")
-    public String registerUser(@ModelAttribute UserDTO userDTO) {
+    public String registerUser(@ModelAttribute UserDto userDTO) {
         signup.execute(userDTO);
         return "redirect:/matpl/home";
     }

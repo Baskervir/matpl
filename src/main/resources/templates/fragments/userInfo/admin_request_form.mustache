@@ -1,0 +1,19 @@
+<h2>사업자 등록 요청</h2>
+<form action="/matpl/admin/request" method="post" class="admin-request-form">
+    <label for="restaurantName">음식점 이름</label>
+    <input type="text" id="restaurantName" name="restaurantName" required>
+
+    <label for="ownerName">대표자 이름</label>
+    <input type="text" id="ownerName" name="ownerName" required>
+
+    <label for="ownerPhone">연락처</label>
+    <input type="text" id="ownerPhone" name="ownerPhone" required>
+
+    <label for="restaurantAddress">음식점 주소</label>
+    <input type="text" id="restaurantAddress" name="restaurantAddress" required>
+
+    <label for="Description">메세지</label>
+    <textarea id="Description" name="Description" rows="4"></textarea>
+
+    <button type="submit">등록 요청 보내기</button>
+</form>
