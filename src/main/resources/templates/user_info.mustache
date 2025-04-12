@@ -14,7 +14,6 @@
     <hr>
 
     <div class="user_page_body">
-        <!-- 좌측 메뉴 -->
         <div class="user_menu">
             <ul>
                 <li><a href="/matpl/users/info?view=mypage">마이 페이지</a></li>
@@ -29,7 +28,6 @@
             </ul>
         </div>
 
-        <!-- 우측 상세 정보 -->
         <div class="user_detail" id="detail-container">
             {{#isMypage}}
                 {{>fragments/userInfo/user_info_mypage}}
@@ -49,6 +47,9 @@
             {{#isChange}}
                 {{>fragments/userInfo/user_info_change}}
             {{/isChange}}
+            {{#isAlreadyRequested}}
+                {{>fragments/userInfo/admin_request_status}}
+            {{/isAlreadyRequested}}
         </div>
     </div>
 

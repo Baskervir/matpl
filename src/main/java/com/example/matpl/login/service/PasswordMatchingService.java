@@ -1,6 +1,7 @@
-package com.example.matpl.login;
+package com.example.matpl.login.service;
 
 import com.example.matpl.entity.UserEntity;
+import com.example.matpl.login.dto.LoginDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

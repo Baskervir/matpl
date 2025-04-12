@@ -1,16 +1,13 @@
-package com.example.matpl.login;
+package com.example.matpl.login.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class LoginDTO {
+public class SessionUserDto {
+    private String nickname;
     private String email;
-    private String password;
-
 }

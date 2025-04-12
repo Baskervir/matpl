@@ -1,5 +1,7 @@
-package com.example.matpl.login;
+package com.example.matpl.login.service;
 
+import com.example.matpl.entity.UserEntity;
+import com.example.matpl.login.dto.LoginDTO;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,8 +10,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SessionService {
     private final HttpSession session;
+    private final UserEntity user;
 
     public void login(LoginDTO loginDTO) {
-        session.setAttribute("loginUser", loginDTO.getEmail());
+        session.setAttribute("loginUserNickname", loginDTO.getEmail());
     }
 }

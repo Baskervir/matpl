@@ -15,8 +15,8 @@ public class AdminRequestController {
 
     @PostMapping("/matpl/users/mypage/requestAdmin")
     public String submitRequest(@ModelAttribute AdminRequestDto dto, HttpSession session) {
-        String requesterEmail = (String) session.getAttribute("loginUser");
-        adminRequestService.saveRequest(dto, requesterEmail);
-        return "redirect:/matpl/home";
+        String requesterNickname = (String) session.getAttribute("loginUserNickname");
+        adminRequestService.saveRequest(dto, requesterNickname);
+        return "redirect:/matpl/users/info?view=requestAdmin";
     }
 }

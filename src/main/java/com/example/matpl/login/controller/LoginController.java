@@ -1,5 +1,7 @@
-package com.example.matpl.login;
+package com.example.matpl.login.controller;
 
+import com.example.matpl.login.dto.LoginDTO;
+import com.example.matpl.login.usecase.LoginUseCase;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,9 +18,7 @@ public class LoginController {
 
     @PostMapping("/in")
     public String userLogin(@ModelAttribute LoginDTO loginDTO, HttpSession session, Model model) {
-        loginUseCase.execute(loginDTO);
-        String nickname = (String) session.getAttribute("loginUser");
-        model.addAttribute("sessionName", nickname);
+        loginUseCase.execute(loginDTO, session, model);
         return "redirect:/matpl/home";
     }
 

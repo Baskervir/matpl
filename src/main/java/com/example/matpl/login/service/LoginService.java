@@ -1,7 +1,9 @@
-package com.example.matpl.login;
+package com.example.matpl.login.service;
 
 import com.example.matpl.entity.UserEntity;
 import com.example.matpl.exception.DisableLoginException;
+import com.example.matpl.login.dto.SessionUserDto;
+import com.example.matpl.login.dto.LoginDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,6 @@ public class LoginService {
             throw new DisableLoginException("이메일 또는 비밀번호가 일치하지 않습니다.");
         }
 
-        return new SessionUserDto(user.getNickname());
+        return new SessionUserDto(user.getNickname(), user.getEmail());
     }
 }

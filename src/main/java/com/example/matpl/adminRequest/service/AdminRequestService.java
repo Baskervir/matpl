@@ -23,4 +23,8 @@ public class AdminRequestService {
 
         adminRequestRepository.save(request);
     }
+
+    public boolean isPendingRequestExists(String requesterEmail) {
+        return adminRequestRepository.existsByRequesterEmailAndStatus(requesterEmail, "PENDING");
+    }
 }

@@ -1,7 +1,8 @@
-package com.example.matpl.login;
+package com.example.matpl.login.service;
 
 import com.example.matpl.entity.UserEntity;
 import com.example.matpl.exception.DisableLoginException;
+import com.example.matpl.login.dto.LoginDTO;
 import com.example.matpl.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
