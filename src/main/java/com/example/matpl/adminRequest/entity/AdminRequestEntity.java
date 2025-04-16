@@ -1,39 +1,40 @@
 package com.example.matpl.adminRequest.entity;
 
+import com.example.matpl.adminRequest.emum.AdminRequestStatus;
+import com.example.matpl.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Getter
-@NoArgsConstructor
-@Table(name = "adminRequest")
+@Table(name = "admin_request_info")
+@Builder
 public class AdminRequestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String requesterEmail;
-
+    @Column
     private String restaurantName;
 
-    private String address;
-
-    private String phone;
+    @Column
+    private String ownerName;
 
     @Column
-    private String description;
+    private String ownerPhone;
 
-    private String status;
+    @Column
+    private String restaurantAddress;
 
-    @Builder
-    public AdminRequestEntity(String requesterEmail, String restaurantName, String address, String phone, String description, String status) {
-        this.requesterEmail = requesterEmail;
-        this.restaurantName = restaurantName;
-        this.address = address;
-        this.phone = phone;
-        this.description = description;
-        this.status = status;
-    }
+    @ManyToOne
+    private UserEntity requesterEmail;
+
+    @Column
+    private String requesterMessage;
+
+    @Column
+    private String adminReplyMessage;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private AdminRequestStatus status;
 }

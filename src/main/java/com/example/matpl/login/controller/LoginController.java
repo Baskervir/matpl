@@ -1,6 +1,7 @@
 package com.example.matpl.login.controller;
 
 import com.example.matpl.login.dto.LoginDTO;
+import com.example.matpl.login.dto.SessionUserDto;
 import com.example.matpl.login.usecase.LoginUseCase;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,11 @@ public class LoginController {
 
     @PostMapping("/in")
     public String userLogin(@ModelAttribute LoginDTO loginDTO, HttpSession session, Model model) {
-        loginUseCase.execute(loginDTO, session, model);
+        SessionUserDto sessionUser = loginUseCase.execute(loginDTO);
+
+        session.setAttribute("loginUserEmail", sessionUser.getEmail());
+        session.setAttribute("loginUserNickname", sessionUser.getNickname());
+        model.addAttribute("sessionName", sessionUser.getNickname());
         return "redirect:/matpl/home";
     }
 

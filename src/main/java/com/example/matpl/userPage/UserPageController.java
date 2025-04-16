@@ -1,6 +1,5 @@
 package com.example.matpl.userPage;
 
-import com.example.matpl.adminRequest.service.AdminRequestService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 public class UserPageController {
 
-    private final AdminRequestService adminRequestService;
 
     @GetMapping("/matpl/users/info")
     public String userInfo(@RequestParam(value = "view", required = false) String view, HttpSession session, Model model) {
@@ -30,14 +28,8 @@ public class UserPageController {
         model.addAttribute("isHistory", "userHistory".equals(view));
         model.addAttribute("isReviews", "userReviews".equals(view));
         model.addAttribute("isChange", "userSetting".equals(view));
+        model.addAttribute("isRequest", "requestAdmin".equals(view));
 
-        if ("requestAdmin".equals(view)) {
-            if (adminRequestService.isPendingRequestExists(requesterEmail)) {
-                model.addAttribute("isAlreadyRequested", true);
-            } else {
-                model.addAttribute("isRequest", true);
-            }
-        }
         return "user_info";
     }
 }

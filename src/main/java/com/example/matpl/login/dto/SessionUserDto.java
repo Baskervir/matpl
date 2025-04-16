@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class SessionUserDto {
-    private String nickname;
     private String email;
+    private String nickname;
 }
