@@ -23,6 +23,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//document.querySelectorAll(".user_menu a").forEach(link => {
+//    link.addEventListener("click", function (e) {
+//        e.preventDefault();
+//        const url = this.getAttribute("href");
+//
+//        fetch(url)
+//            .then(res => res.text())
+//            .then(html => {
+//                document.getElementById("detail-container").innerHTML = html;
+//            });
+//    });
+//});
+
+
+
 
 //const modalOverlay = document.querySelector(".modal_overlay");
 //

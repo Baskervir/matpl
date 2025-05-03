@@ -287,7 +287,7 @@ section > div {
     border-radius: 15px;
     padding-bottom: 10px;
     padding-top: 10px;
-    margin: auto 40px auto 40px;
+    margin: auto 40px 10px 40px;
     background-color: rgb(255, 0, 0, 0.5);
     font-weight: bolder;
 }
@@ -338,4 +338,9 @@ hr {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   border-radius: 15px;
+}
+
+.no-style-link {
+  color: inherit;
+  text-decoration: none;
 }

@@ -1,6 +1,6 @@
 package com.example.matpl.service;
 
-import com.example.matpl.dto.UserDTO;
+import com.example.matpl.dto.UserDto;
 import com.example.matpl.entity.UserEntity;
 import com.example.matpl.enums.Role;
 import com.example.matpl.enums.UserStatus;
@@ -24,7 +24,7 @@ public class SignupService {
     private final DuplicateUserInfoValidator duplicateUserInfoValidator;
 
     @Transactional
-    public void signup(@Valid UserDTO userDTO) {
+    public void signup(@Valid UserDto userDTO) {
         duplicateUserInfoValidator.emailValidate(userDTO.getEmail());
         duplicateUserInfoValidator.nicknameValidate(userDTO.getNickname());
         passwordValidator.validate(userDTO.getPassword(), userDTO.getPasswordCheck());

@@ -14,19 +14,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/matpl/home",
-                                "/css/**",
-                                "/js/**",
-                                "/image/**",
-                                "/users/**",
-                                "/log/**"
-                        ).permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .formLogin(form -> form.disable())
                 .httpBasic(httpBasic -> httpBasic.disable());
-
         return http.build();
     }
 

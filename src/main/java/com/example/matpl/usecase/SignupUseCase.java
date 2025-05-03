@@ -1,6 +1,6 @@
 package com.example.matpl.usecase;
 
-import com.example.matpl.dto.UserDTO;
+import com.example.matpl.dto.UserDto;
 import com.example.matpl.service.SignupService;
 import com.example.matpl.validator.DuplicateUserInfoValidator;
 import com.example.matpl.validator.PasswordValidator;
@@ -17,7 +17,7 @@ public class SignupUseCase {
     private final SignupService signupService;
     private final SignupMailVerificationUseCase signupMailVerificationUseCase;
 
-    public void execute(UserDTO userDTO) {
+    public void execute(UserDto userDTO) {
         duplicateUserInfoValidator.emailValidate(userDTO.getEmail());
         duplicateUserInfoValidator.nicknameValidate(userDTO.getNickname());
         passwordValidator.validate(userDTO.getPassword(), userDTO.getPasswordCheck());

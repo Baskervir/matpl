@@ -1,0 +1,42 @@
+<div class="modal_user_setting">
+    <div class="user_setting_container">
+
+        <div class="profile_img">
+            {{#profileImage}}
+                <img src="{{profileImage}}" alt="프로필 이미지" class="profile_img">
+            {{/profileImage}}
+
+            {{^profileImage}}
+                <img src="/image/UserBasicImg.png" alt="">
+            {{/profileImage}}
+        </div>
+        {{#sessionName}}
+            <h4 id="user_nickname">반갑습니다. {{sessionName}}님!</h4>
+        {{/sessionName}}
+        <hr>
+        <a href="/matpl/users/info?view=mypage">
+            <h4>마이 페이지</h4>
+        </a>
+        <a href="/matpl/users/info?view=userSetting">
+            <h4>개인 정보 변경</h4>
+        </a>
+        <a href="/matpl/users/info?view=favorites">
+            <h4>즐겨찾기</h4>
+        </a>
+        <a href="/matpl/users/info?view=userHistory">
+            <h4>방문 기록</h4>
+        </a>
+        <a href="/matpl/users/info?view=userReviews">
+            <h4>리뷰 관리</h4>
+        </a>
+        <a href="/matpl/users/info?view=requestAdmin">
+            <h4>사업자 등록하기</h4>
+        </a>
+        <hr>
+        <form action="/log/out" method="post">
+            <button class="logout_btn">로그아웃</button>
+        </form>
+    </div>
+</div>
+
+<div class="modal_overlay"></div>

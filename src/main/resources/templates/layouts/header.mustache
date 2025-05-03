@@ -1,0 +1,38 @@
+<div class="header">
+    <div class="login_signup_text">
+        <!-- 로그인 O -->
+        {{#sessionName}}
+            <div class="login_info">
+                {{#profileImage}}
+                    <img src="{{profileImage}}" alt="프로필 이미지" class="profile_img">
+                {{/profileImage}}
+
+                {{^profileImage}}
+                    <img src="/image/UserBasicImg.png" alt=""> <span>{{sessionName}} 님</span>
+                {{/profileImage}}
+                <button data-modal-target=".modal_user_setting">⚙️</button>
+            </div>
+        {{/sessionName}}
+
+        <!-- 로그인 X -->
+        {{^sessionName}}
+            <div class="login_signup_text">
+                <button data-modal-target=".modal_signup_login">회원가입 / 로그인</button>
+            </div>
+        {{/sessionName}}
+    </div>
+    <hr>
+    <div class="header_object">
+        <div class="main_logo">
+            <a href="/matpl/home" class="no-style-link">
+                <p>MatPl<sub>ace</sub></p>
+            </a>
+        </div>
+        <div class="search_place">
+            <input type="text" id="searchplace" placeholder="검색어를 입력하세요.">
+        </div>
+        <div class="search_button">
+            <button onclick="window.location.href='/detail/detail_page.html'">검색하기</button>
+        </div>
+    </div>
+</div>

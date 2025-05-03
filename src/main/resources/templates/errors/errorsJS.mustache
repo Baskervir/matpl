@@ -1,0 +1,13 @@
+{{#errorMessage}}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const modalOverlay = document.querySelector(".modal_overlay");
+          const modal = document.querySelector(".error_modal");
+
+          if (modal && modalOverlay) {
+            modal.style.display = "block";
+            modalOverlay.style.display = "block";
+          }
+        });
+    </script>
+{{/errorMessage}}

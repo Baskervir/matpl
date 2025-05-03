@@ -1,6 +1,6 @@
 package com.example.matpl.usecase;
 
-import com.example.matpl.dto.UserDTO;
+import com.example.matpl.dto.UserDto;
 import com.example.matpl.mail.MailSendService;
 import com.example.matpl.service.TokenStoreService;
 import com.example.matpl.util.TokenGenerator;
@@ -14,7 +14,7 @@ public class SignupMailVerificationUseCase {
     private final MailSendService mailSendService;
     private final TokenStoreService tokenStoreService;
 
-    public void execute(UserDTO userDTO) {
+    public void execute(UserDto userDTO) {
         String createdToken = tokenGenerator.generate();
         tokenStoreService.insertVerificationData(userDTO, createdToken);
         mailSendService.sendVerifyMail(userDTO.getEmail(), createdToken);

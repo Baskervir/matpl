@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
     @GetMapping("/matpl/home")
     public String index(HttpSession session, Model model) {
-        String nickname = (String) session.getAttribute("loginUser");
+        String nickname = (String) session.getAttribute("loginUserNickname");
         if (nickname != null) {
             model.addAttribute("sessionName", nickname);
         }
